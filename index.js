@@ -475,7 +475,7 @@ alexa.app = function(name) {
             var eventHandlerObject = self.audioPlayerEventHandlers[event];
             if (typeof eventHandlerObject != "undefined" && typeof eventHandlerObject["function"] == "function") {
               var eventHandlerResult = eventHandlerObject["function"](request, response, callbackHandler);
-              if (eventHandlerObject && eventHandlerObject.then) {
+              if (eventHandlerResult && eventHandlerResult.then) {
                 Promise.resolve(eventHandlerResult).asCallback(callbackHandler);
               } else if (false !== eventHandlerResult) {
                 callbackHandler();
